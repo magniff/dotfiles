@@ -333,6 +333,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 
 " --- Python ---
+autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd FileType python nnoremap <buffer> <F8> :exec '!python -i' shellescape(@%, 1)<cr>
 let python_highlight_all=1
 let python_highlight_exceptions=0
 let python_highlight_builtins=1
