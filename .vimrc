@@ -17,9 +17,9 @@ Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 
-"---------=== Markdown ===------------
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+
+"---------=== C development  ===-------------
+Plugin 'szw/vim-tags'
 
 "------------------=== Other ===----------------------
 Plugin 'bling/vim-airline'              " lean & mean status/tabline for vim that's light as air
@@ -52,11 +52,9 @@ Plugin 'JulesWang/css.vim'              " CSS syntax file
 Plugin 'groenewege/vim-less'            " Vim syntax for LESS (dynamic CSS)
 
 " --- JavaScript ---
-Plugin 'pangloss/vim-javascript'        " Vastly improved Javascript indentation and syntax support in Vim
 
 " --- HTML ---
-Plugin 'othree/html5.vim'               " HTML5 omnicomplete and sytnax
-Plugin 'idanarye/breeze.vim'            " Html navigation like vim-easymotion, tag matching, tag highlighting and DOM navigation
+Plugin 'mattn/emmet-vim'
 
 " --- Python ---
 Plugin 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
@@ -125,6 +123,7 @@ filetype plugin indent on
 "=====================================================
 " General settings
 "=====================================================
+nnoremap ; :
 set nobackup
 set nowritebackup
 set noswapfile
@@ -149,7 +148,7 @@ if has("gui_running")
 endif
 set ttyfast
 
-colorscheme molokai
+colorscheme xoria256
 " set guifont=Consolas:h13
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 
@@ -310,6 +309,9 @@ let g:syntastic_c_compiler = 'clang'
 " --- Clojure ---
 autocmd FileType clj setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
+" --- YAML ---
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+
 " --- CSS ---
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -317,20 +319,6 @@ autocmd FileType css setlocal commentstring=/*\ %s\ */
 
 " --- Erlang ---
 autocmd Filetype erlang setlocal omnifunc=erlang_complete#Complete
-
-" --- JavaScript ---
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd BufNewFile,BufRead *.json setlocal ft=javascript
-autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType javascript setlocal commentstring=//\ %s
-autocmd FileType javascript let b:javascript_fold = 0
-let javascript_enable_domhtmlcss=1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
-
-" --- HTML ---
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 
 " --- Python ---
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
@@ -340,12 +328,12 @@ let python_highlight_exceptions=0
 let python_highlight_builtins=1
 let python_slow_sync=1
 autocmd FileType python setlocal completeopt-=preview
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
       \ formatoptions+=croq softtabstop=4 smartindent
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_python_flake8_args='--ignore=E121,E128,E711,E301,E261,E241,E124,E126,E721
+let g:syntastic_python_flake8_args='--ignore=E226,W391
       \ --max-line-length=80'
 
 " --- Rust ---
@@ -353,11 +341,11 @@ set hidden
 let g:racer_cmd = "/Users/savicvalera/racer/target/release/racer"
 let $RUST_SRC_PATH = "/Users/savicvalera/rust/src"
 autocmd BufRead,BufNewFile *.rs set filetype=rust
-autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType rust setlocal commentstring=//\ %s
 
 " --- Vim ---
-autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=4 softtabstop=2
 
 " --- template language support (SGML / XML too) ---
 autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
