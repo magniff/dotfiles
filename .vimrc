@@ -8,8 +8,10 @@ filetype off     " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+
 Plugin 'gmarik/Vundle.vim'              " let Vundle manage Vundle, required
 Plugin 'https://github.com/flazz/vim-colorschemes.git'
+
 
 "---------=== Code/project navigation ===-------------
 Plugin 'scrooloose/nerdtree'            " A tree explorer plugin for vim
@@ -18,49 +20,21 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 
 
-"---------=== C development  ===-------------
-Plugin 'szw/vim-tags'
-
 "------------------=== Other ===----------------------
 Plugin 'bling/vim-airline'              " lean & mean status/tabline for vim that's light as air
-Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'git://github.com/altercation/solarized.git'
 
-"--------------=== Snippets support ===---------------
-Plugin 'honza/vim-snippets'
-Plugin 'SirVer/ultisnips'
 
 "---------------=== Languages support ===-------------
 Plugin 'scrooloose/syntastic'           " Syntax checking plugin for Vim
 Plugin 'tpope/vim-commentary'           " Comment stuff out
 Plugin 'mitsuhiko/vim-sparkup'          " Sparkup (XML/jinja/htlm-django/etc.) support
 
-" --- Clojure ---
-Plugin 'tpope/vim-fireplace'            " Clojure completion
-Plugin 'guns/vim-clojure-highlight'     " Highlighting code
-Plugin 'guns/vim-clojure-static'        " Highlighting for static types
-
-"" --- Erlang ---
-Plugin 'jimenezrick/vimerl'             " The Erlang plugin for Vim
-"" --- GO ---
-Plugin 'fatih/vim-go'
-
-" --- CSS ---
-Plugin 'JulesWang/css.vim'              " CSS syntax file
-Plugin 'groenewege/vim-less'            " Vim syntax for LESS (dynamic CSS)
-
-" --- JavaScript ---
-
-" --- HTML ---
-Plugin 'mattn/emmet-vim'
 
 " --- Python ---
 Plugin 'davidhalter/jedi-vim'           " Awesome Python autocompletion with VIM
 Plugin 'hynek/vim-python-pep8-indent'   " PEP8 indent
-Plugin 'https://github.com/nvie/vim-flake8.git'
-Plugin 'Chiel92/vim-autoformat'
+
 
 " --- Rust ---
 Plugin 'rust-lang/rust.vim'             " Vim support for Rust file detection and syntax highlighting
@@ -72,7 +46,7 @@ Plugin 'https://github.com/jiangmiao/auto-pairs.git'
 
 
 set list
-set listchars=eol:↷,tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 
 " Remap leader key to space bar
 let mapleader = "\<Space>"
